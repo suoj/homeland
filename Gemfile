@@ -128,6 +128,9 @@ gem "homeland-wiki"
 
 gem "bootsnap"
 
+gem "lograge"
+gem 'derailed_benchmarks', github: "schneems/derailed_benchmarks", group: :development
+
 group :development do
   gem "spring"
   gem "spring-commands-rspec"

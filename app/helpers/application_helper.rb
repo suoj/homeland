@@ -63,11 +63,13 @@ module ApplicationHelper
                        "x320|x240|j2me|sgh|portable|sprint|docomo|kddi|softbank|android|mmp|" \
                        'pdxgw|netfront|xiino|vodafone|portalmmm|sagem|mot-|sie-|ipod|up\\.b|' \
                        "webos|amoi|novarra|cdm|alcatel|pocket|iphone|mobileexplorer|mobile"
+  MOBILE_USER_AGENTS_RE = Regexp.new(MOBILE_USER_AGENTS)
+
   def mobile?
     agent_str = request.user_agent.to_s.downcase
     return true if turbolinks_app?
     return false if agent_str.match?(/ipad/)
-    agent_str =~ Regexp.new(MOBILE_USER_AGENTS)
+    agent_str =~ MOBILE_USER_AGENTS_RE
   end
 
   # 可按需修改

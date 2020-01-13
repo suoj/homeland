@@ -20,3 +20,5 @@ docker\:reindex:
 	@$(RAKE) environment elasticsearch:import:model CLASS=Topic FORCE=y
 	@$(RAKE) environment elasticsearch:import:model CLASS=Page FORCE=y
 	@$(RAKE) environment elasticsearch:import:model CLASS=User FORCE=y
+perf\:mem:
+	RAILS_LOG_TO_STDOUT= TEST_COUNT=100_00 USE_SERVER=puma PATH_TO_HIT=/topics/10 bundle exec derailed exec perf:mem_over_time
