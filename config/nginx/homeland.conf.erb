@@ -13,7 +13,21 @@ log_format timed_combined '$remote_addr - $remote_user [$time_local] '
                           '$request_time $upstream_response_time $pipe';
 
 server {
-  listen 80 default_server;
+  listen       80;
+  server_name suoj.com,www.suoj.com;
+  return 301 https://www.suoj.com$request_uri;
+}
+
+server {
+  listen 443;
+  server_name suoj.com;
+  return 301 https://www.suoj.com$request_uri;
+}
+
+
+server {
+  listen 443 default_server;
+  server_name www.suoj.com;
 
   <% if ENV['https'] == "true" || ENV["https"] == "1" %>
   include /etc/nginx/ssl.conf;
