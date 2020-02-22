@@ -83,8 +83,8 @@ class Setting < RailsSettings::Base
     user_name: (ENV["mailer_options_user_name"] || ENV["mailer_options.user_name"]),
     password: (ENV["mailer_options_password"] || ENV["mailer_options.password"]),
     authentication: (ENV["mailer_options_authentication"] || ENV["mailer_options.authentication"] || "login"),
-    enable_starttls_auto: (ENV["mailer_options_enable_starttls_auto"] || ENV["mailer_options.enable_starttls_auto"])
-    openssl_verify_mode: (ENV["mailer_options_openssl_verify_mode"] || ENV["mailer_options.openssl_verify_mode"])
+    enable_starttls_auto: (ENV["mailer_options_enable_starttls_auto"] || ENV["mailer_options.enable_starttls_auto"]),
+    openssl_verify_mode: (ENV["mailer_options_openssl_verify_mode"] || ENV["mailer_options.openssl_verify_mode"]),
     ssl: (ENV["mailer_options_ssl"] || ENV["mailer_options.ssl"])
   }
 
