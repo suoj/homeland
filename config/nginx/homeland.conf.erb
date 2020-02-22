@@ -26,12 +26,12 @@ server {
 
 
 server {
-  listen 443 default_server;
+  listen 443 ssl http2 default_server;
   server_name www.suoj.com;
 
-  <% if ENV['https'] == "true" || ENV["https"] == "1" %>
-  include /etc/nginx/ssl.conf;
-  <% end %>
+  ssl_certificate     /home/app/ssl/homeland.crt;
+  ssl_certificate_key /home/app/ssl/homeland.key;
+  ssl_dhparam         /home/app/ssl/dhparam.pem;
 
   location /nginx_status {
     allow 127.0.0.1;
